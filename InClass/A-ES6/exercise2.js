@@ -3,6 +3,7 @@ class Polygon {
     this.name = "Polygon";
     this.height = height;
     this.width = width;
+    
   }
   sayName() {
     console.log('Hi, I am a ' + this.name);
@@ -36,4 +37,33 @@ console.log('The area of this polygon is ' + r.area);
 
 
 
+class triangle extends Polygon {
+  constructor(height, width) {
+    super(height, width);
+    this.name = "Triangle";
+    this.sides = 3;
+    //this.area = this.height * this.width;
+  }
+  get area() {return this.width * this.height / 2;}
+  sayName() {
+    console.log('Hi I am a polygon and my name is ' + this.name + '.');
+  }
+}
 
+let t = new triangle(50, 60);
+t.sayName();
+//r.area = 3;
+console.log('The area of this polygon is ' + t.area);
+
+
+class Trapezoid extends Polygon {
+  constructor(height, base1, base2) {
+      super(height);
+      this.name = "Trapezoid";
+      this.area = (base1 + base2) * height / 2;
+  }
+}
+
+let tp = new Trapezoid(10, 20, 30);
+console.log(tp.area);
+console.log(tp.sayName());
